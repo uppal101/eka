@@ -2,9 +2,9 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Form, Button, Grid } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux'
-import {signup} from '../../actions/user-actions'
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {signup} from '../../actions/user-actions';
 import { required, number, renderField } from '../helpers/validations';
 
 
@@ -13,7 +13,7 @@ let SignupForm3 = (props) => {
   return (
      <Grid centered columns={2}>
         <Grid.Column className="home">
-          <Form className="forms" onSubmit={ handleSubmit }>
+          <Form className="forms" onSubmit={ handleSubmit(props.signup) }>
             <Form.Field inline>
                <Field 
                 name="streetAddress" 
@@ -73,14 +73,14 @@ SignupForm3 = reduxForm({
   form: 'form3'
 })(SignupForm3)
 
-const mapStateToProps = (state, ownProps) => {
- return {
-  userSignup: state.userSignup
- }
-}
+//const mapStateToProps = (state, ownProps) => {
+// return {
+//  userSignup: state.userSignup
+// }
+//}
+//
+//const mapDispatchToProps = (dispatch) => {
+// return bindActionCreators({signup}, dispatch)
+//}
 
-const mapDispatchToProps = (dispatch) => {
- return bindActionCreators({signup}, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SignupForm3)
+export default SignupForm3
