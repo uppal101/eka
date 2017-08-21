@@ -8,52 +8,63 @@ import {signup} from '../../actions/user-actions';
 import { required, minValue7, email, renderField } from '../helpers/validations';
 
 
-let SignupForm = (props) => {
-  const { handleSubmit } = props;
-  return (
-      <Grid centered columns={2}>
-        <Grid.Column className="home">
-          <Form className="forms" onSubmit={ handleSubmit }>
-            <Form.Field inline>
-               <Field 
-                name="username" 
-                component={renderField}
-                type="text" 
-                placeholder="Username"
-                label="Username"
-                validate={[required]}
-              />
-            </Form.Field>
+class SignupForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleSubmit=this.handleSubmit.bind(this);
+  }
+  
+  handleSubmit(values) {
+    this.props.onSubmit(values)
+  }
+  
+  render () {
+    return (
+        <Grid centered columns={2}>
+          <Grid.Column className="home">
+            <Form className="forms" onSubmit={ this.props.handleSubmit }>
+              <Form.Field inline>
+                 <Field 
+                  name="username" 
+                  component={renderField}
+                  type="text" 
+                  placeholder="Username"
+                  label="Username"
+                  validate={[required]}
+                />
+              </Form.Field>
 
-            <Form.Field inline>
-               <Field 
-                name="email" 
-                component={renderField}
-                type="email" 
-                placeholder="Email"
-                label="Email"
-                validate={[required, email]}
-              />
-            </Form.Field>
+              <Form.Field inline>
+                 <Field 
+                  name="email" 
+                  component={renderField}
+                  type="email" 
+                  placeholder="Email"
+                  label="Email"
+                  validate={[required, email]}
+                />
+              </Form.Field>
 
-             <Form.Field inline>
-               <Field 
-                name="password" 
-                component={renderField} 
-                type="password" 
-                placeholder="Password"
-                label="Password"
-                validate={[required, minValue7]}
-              />
-            </Form.Field>
-            <Link to={'/signup2'}>
-              <Button type="submit">Save</Button>
-            </Link>
-          </Form>
-        </Grid.Column>
-      </Grid>
-    
-  )
+               <Form.Field inline>
+                 <Field 
+                  name="password" 
+                  component={renderField} 
+                  type="password" 
+                  placeholder="Password"
+                  label="Password"
+                  validate={[required, minValue7]}
+                />
+              </Form.Field>
+              <Link to={'/signup2'}>
+                <Button type="submit">Save</Button>
+              </Link>
+            </Form>
+          </Grid.Column>
+        </Grid>
+
+    )
+  }
+  
 }
 
 SignupForm = reduxForm({
