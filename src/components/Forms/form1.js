@@ -9,11 +9,11 @@ import { required, minValue7, email, renderField } from '../helpers/validations'
 
 
 let SignupForm = (props) => {
-  const { handleSubmit } = props;
+  const { handleSubmit } = props.signup;
   return (
       <Grid centered columns={2}>
         <Grid.Column className="home">
-          <Form className="forms" onSubmit={ handleSubmit(props.signup) }>
+          <Form className="forms" onSubmit={ handleSubmit }>
             <Form.Field inline>
                <Field 
                 name="username" 

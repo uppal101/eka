@@ -1,6 +1,6 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
-import { Form, Button, Grid } from 'semantic-ui-react';
+import { Field, Form, reduxForm } from 'redux-form';
+import { Button, Grid } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
@@ -9,11 +9,11 @@ import { required, number, renderField } from '../helpers/validations';
 
 
 let SignupForm3 = (props) => {
-  const { handleSubmit } = props
+  const { handleSubmit } = props.signup;
   return (
      <Grid centered columns={2}>
         <Grid.Column className="home">
-          <Form className="forms" onSubmit={ handleSubmit(props.signup) }>
+          <Form className="forms" onSubmit={ handleSubmit }>
             <Form.Field inline>
                <Field 
                 name="streetAddress" 
