@@ -13,7 +13,7 @@ let SignUpForm2 = (props) => {
   return (
      <Grid centered columns={2}>
         <Grid.Column className="home">
-          <Form className="forms" onSubmit={ handleSubmit }>
+          <Form className="forms" onSubmit={ handleSubmit(props.signup) }>
             <Form.Field inline>
                <Field 
                 name="firstName" 
