@@ -1,4 +1,4 @@
-import * as CONST from '../constants/constants';
+import * as CONST from '../constants/constant';
 
 export const userSignup = (state = { status: false }, action) => {
   switch (action.type) {

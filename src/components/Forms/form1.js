@@ -4,7 +4,7 @@ import { Form, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import {signup} from '../actions/user-actions'
+import {signup} from '../../actions/user-actions'
 import { required, minValue7, email, renderField } from '../helpers/validations';
 
 
