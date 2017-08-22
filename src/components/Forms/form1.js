@@ -1,17 +1,8 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Form, Button, Grid } from 'semantic-ui-react';
-<<<<<<< HEAD
-import { Link } from 'react-router-dom';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-=======
->>>>>>> class
-import {signup} from '../../actions/user-actions';
 import { required, minValue7, email, renderField } from '../helpers/validations';
 
-
-<<<<<<< HEAD
 let SignupForm = (props) => {
   const { handleSubmit } = props.signup;
   return (
@@ -55,7 +46,6 @@ class SignupForm extends React.Component {
                   validate={[required]}
                 />
               </Form.Field>
->>>>>>> class
 
               <Form.Field inline>
                  <Field 
