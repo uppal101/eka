@@ -1,20 +1,6 @@
 import React from 'react';
-<<<<<<< HEAD
 import { Field, Form, reduxForm } from 'redux-form';
 import { Button, Grid } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
-import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux'
-import {signup} from '../../actions/user-actions'
-import { required, number, renderField } from '../helpers/validations';
-
-
-let SignupForm3 = (props) => {
-  const { handleSubmit } = props.signup;
-  return (
-=======
-import { Field, reduxForm } from 'redux-form';
-import { Form, Button, Grid } from 'semantic-ui-react';
 import { required, number, renderField } from '../helpers/validations';
 
 
@@ -31,7 +17,6 @@ class SignupForm3 extends React.Component {
   
   render () {
     return (
->>>>>>> class
      <Grid centered columns={2}>
         <Grid.Column className="home">
           <Form className="forms" onSubmit={ this.props.handleSubmit(this.props.submit) }>
