@@ -1,9 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Form, Button, Grid } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 import {signup} from '../../actions/user-actions';
 import { required, minValue7, email, renderField } from '../helpers/validations';
 
@@ -11,18 +8,19 @@ import { required, minValue7, email, renderField } from '../helpers/validations'
 class SignupForm extends React.Component {
   constructor(props) {
     super(props);
-    this.handleSubmit=this.handleSubmit.bind(this);
+    this.submit = this.submit.bind(this);
   }
   
-  handleSubmit(values) {
-    this.props.onSubmit(values)
+  submit(values) {
+    this.props.signup(values)
+    this.props.history.push('/form2')
   }
   
   render () {
     return (
         <Grid centered columns={2}>
           <Grid.Column className="home">
-            <Form className="forms" onSubmit={ this.props.handleSubmit }>
+            <Form className="forms" onSubmit={ this.props.handleSubmit(this.props.submit) }>
               <Form.Field inline>
                  <Field 
                   name="username" 
@@ -55,9 +53,7 @@ class SignupForm extends React.Component {
                   validate={[required, minValue7]}
                 />
               </Form.Field>
-              <Link to={'/signup2'}>
                 <Button type="submit">Save</Button>
-              </Link>
             </Form>
           </Grid.Column>
         </Grid>
@@ -71,14 +67,5 @@ SignupForm = reduxForm({
   form: 'form1'
 })(SignupForm)
 
-//const mapStateToProps = (state, ownProps) => {
-// return {
-//  userSignup: state.userSignup
-// }
-//}
-//
-//const mapDispatchToProps = (dispatch) => {
-// return bindActionCreators({signup}, dispatch)
-//}
 
 export default SignupForm
