@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 import { Field, reduxForm } from 'redux-form';
 import { Form, Button, Grid } from 'semantic-ui-react';
 import { required, number, renderField } from '../helpers/validations';
