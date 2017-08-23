@@ -29,7 +29,7 @@
         "path" : ""
       },
       "globals" : {
-        "myGlobalVar" : "some value",
+        "myGlobalVar" : "./globals.js",
       }
     },
 
