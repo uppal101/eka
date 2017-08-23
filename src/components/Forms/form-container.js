@@ -16,8 +16,14 @@ const mapDispatchToProps = (dispatch) => {
  return bindActionCreators({signup}, dispatch)
 };
 
-const specialContainer = connect(mapStateToProps, mapDispatchToProps);
+//const specialContainer = connect(mapStateToProps, mapDispatchToProps);
 
-export const SignupPage1 = specialContainer(Form1);
-export const SignupPage2 = specialContainer(Form2);
-export const SignupPage3 = specialContainer(Form3);
+export const SignupPage1 = connect(mapStateToProps, mapDispatchToProps)(reduxForm({
+  form: 'form1'
+})(Form1));
+export const SignupPage2 = connect(mapStateToProps, mapDispatchToProps)(reduxForm({
+  form: 'form2'
+})(Form2));
+export const SignupPage3 = connect(mapStateToProps, mapDispatchToProps)(reduxForm({
+  form: 'form3'
+})(Form3));

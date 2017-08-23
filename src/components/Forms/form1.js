@@ -1,34 +1,8 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Form, Button, Grid } from 'semantic-ui-react';
-<<<<<<< HEAD
-import { Link } from 'react-router-dom';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-=======
->>>>>>> class
-import {signup} from '../../actions/user-actions';
 import { required, minValue7, email, renderField } from '../helpers/validations';
 
-
-<<<<<<< HEAD
-let SignupForm = (props) => {
-  const { handleSubmit } = props.signup;
-  return (
-      <Grid centered columns={2}>
-        <Grid.Column className="home">
-          <Form className="forms" onSubmit={ handleSubmit }>
-            <Form.Field inline>
-               <Field 
-                name="username" 
-                component={renderField}
-                type="text" 
-                placeholder="Username"
-                label="Username"
-                validate={[required]}
-              />
-            </Form.Field>
-=======
 class SignupForm extends React.Component {
   constructor(props) {
     super(props);
@@ -37,7 +11,7 @@ class SignupForm extends React.Component {
   
   submit(values) {
     this.props.signup(values)
-    this.props.history.push('/form2')
+    this.props.history.push('/signup2')
   }
   
   render () {
@@ -55,7 +29,6 @@ class SignupForm extends React.Component {
                   validate={[required]}
                 />
               </Form.Field>
->>>>>>> class
 
               <Form.Field inline>
                  <Field 
@@ -87,10 +60,10 @@ class SignupForm extends React.Component {
   }
   
 }
-
-SignupForm = reduxForm({
-  form: 'form1'
-})(SignupForm)
+//
+//SignupForm = reduxForm({
+//  form: 'form1'
+//})(SignupForm)
 
 
 export default SignupForm

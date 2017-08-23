@@ -1,6 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Form, Button, Grid } from 'semantic-ui-react';
+import { Redirect } from 'react-router';
 import { required, number, renderField } from '../helpers/validations';
 
 
@@ -8,11 +9,15 @@ class SignUpForm2 extends React.Component {
   constructor(props) {
     super(props);
     this.submit = this.submit.bind(this);
+    this.state = {
+      redirect: false
+    }
   }
   
   submit(values) {
     this.props.signup(values)
-    this.props.history.push('/form3')
+    this.props.history.push('/signup3')
+    this.setState({redirect: true})
   }
   
   render () {
@@ -54,6 +59,7 @@ class SignUpForm2 extends React.Component {
             </Form.Field>
               <Button type="submit">Save</Button>
           </Form>
+          {this.state.redirect && (<Redirect to={'/signup3'}/>)}
         </Grid.Column>
       </Grid> 
     )
@@ -61,9 +67,9 @@ class SignUpForm2 extends React.Component {
   
 }
 
-SignUpForm2 = reduxForm({
-  form: 'form2'
-})(SignUpForm2)
+//SignUpForm2 = reduxForm({
+//  form: 'form2'
+//})(SignUpForm2)
 
 
 export default SignUpForm2
